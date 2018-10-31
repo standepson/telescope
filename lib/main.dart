@@ -4,8 +4,12 @@ void main() => runApp(new TelescopeApp());
 
 class TelescopeApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return new MaterialApp();
+    return new MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Telescope'),
+        ),
+      ),
+    );
   }
 }
-
-
