@@ -35,16 +35,16 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-    - assets/
-  fonts:
-      - family: PrintClearly
-        fonts:
-          - asset: assets/PrintClearly.ttf
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/galaxyScreen/emptyGalaxy.png
     - assets/galaxyScreen/star.png
+  fonts:
+      - family: PrintClearly
+        fonts:
+          - asset: assets/PrintClearly.ttf
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

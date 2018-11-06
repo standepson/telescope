@@ -94,6 +94,46 @@ class Galaxy extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
+            new Positioned(
+              left: 230.0,
+              bottom: 510.0,
+              child: new Image.asset(
+                'assets/galaxyScreen/star.png',
+                width: star_size,
+                height: star_size,
+                fit: BoxFit.cover,
+              ),
+            ),
+            new Positioned(
+              left: 20.0,
+              bottom: 480.0,
+              child: new Image.asset(
+                'assets/galaxyScreen/star.png',
+                width: star_size,
+                height: star_size,
+                fit: BoxFit.cover,
+              ),
+            ),
+            new Positioned(
+              left: 170.0,
+              bottom: 450.0,
+              child: new Image.asset(
+                'assets/galaxyScreen/star.png',
+                width: star_size,
+                height: star_size,
+                fit: BoxFit.cover,
+              ),
+            ),
+            new Positioned(
+              left: 30.0,
+              bottom: 340.0,
+              child: new Image.asset(
+                'assets/galaxyScreen/star.png',
+                width: star_size,
+                height: star_size,
+                fit: BoxFit.cover,
+              ),
+            ),
           ],
         ),
       ),
