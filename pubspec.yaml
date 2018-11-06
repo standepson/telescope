@@ -39,6 +39,7 @@ flutter:
   assets:
     - assets/galaxyScreen/emptyGalaxy.png
     - assets/galaxyScreen/star.png
+    - assets/daysOfTheWeekScreens/background.png
   fonts:
       - family: PrintClearly
         fonts:
