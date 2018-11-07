@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TaskEntering extends StatefulWidget {
-  @override
-  TaskEnteringInput createState() => new TaskEnteringInput();
-}
-
-class TaskEnteringInput extends State<TaskEntering> {
+class TaskEntering extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
