@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import './galaxy.dart';
+import './task_input_screen.dart';
+import './placeholder.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,27 +11,43 @@ class Home extends StatefulWidget {
 }
 
 class _Home_State extends State<Home> {
+  int _currentIndex = 0;
+  final List<Widget> _children = [
+    PlaceholderWidget(Colors.white),
+    Galaxy(),
+    TaskEntering()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('App'),
       ),
-      bottomNavigationBar: new BottomNavigationBar(currentIndex: 0, items: [
-        new BottomNavigationBarItem(
-          icon: new Icon(Icons.home),
-          title: new Text('Test1'),
-        ),
-        new BottomNavigationBarItem(
-          icon: new Icon(Icons.mail),
-          title: new Text('Test2'),
-        ),
-        new BottomNavigationBarItem(
-          icon: new Icon(Icons.person),
-          title: new Text('Test3'),
-        ),
-      ]),
+      body: _children[_currentIndex],
+      bottomNavigationBar: new BottomNavigationBar(
+          onTap: onTabTapped,
+          currentIndex: _currentIndex,
+          items: [
+            new BottomNavigationBarItem(
+              icon: new Icon(Icons.home),
+              title: new Text('Calendar'),
+            ),
+            new BottomNavigationBarItem(
+              icon: new Icon(Icons.mail),
+              title: new Text('Galaxy'),
+            ),
+            new BottomNavigationBarItem(
+              icon: new Icon(Icons.person),
+              title: new Text('Task input'),
+            ),
+          ]),
     );
+  }
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
 }
