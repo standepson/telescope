@@ -37,10 +37,18 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/galaxyScreen/emptyGalaxy.png
-    - assets/galaxyScreen/star.png
-    - assets/daysOfTheWeekScreens/background.png
-
+     - assets/weekCalendarScreen/mondayMoon.png
+     - assets/weekCalendarScreen/key.png
+     - assets/weekCalendarScreen/fridayMoon.png
+     - assets/weekCalendarScreen/saturdayMoon.png
+     - assets/weekCalendarScreen/wednesdayMoon.png
+     - assets/weekCalendarScreen/thursdayMoon.png
+     - assets/weekCalendarScreen/yourWeek.png
+     - assets/weekCalendarScreen/sundayMoon.png
+     - assets/weekCalendarScreen/tuesdayMoon-07.png
+     - assets/galaxyScreen/emptyGalaxy.png
+     - assets/galaxyScreen/star.png
+     - assets/daysOfTheWeekScreens/background.png
   fonts:
       - family: PrintClearly
         fonts:
