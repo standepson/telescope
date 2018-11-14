@@ -6,6 +6,7 @@ import './home_widget.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+
   //colors for background
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Navigation Basics',
       theme: new ThemeData(
-        primarySwatch: Colors.green,
+        fontFamily: 'PrintClearly.ttf',
+        primarySwatch: Colors.deepPurple,
       ),
       home: Home(),
     );

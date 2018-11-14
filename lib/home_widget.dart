@@ -22,24 +22,21 @@ class _Home_State extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('App'),
-      ),
       body: _children[_currentIndex],
       bottomNavigationBar: new BottomNavigationBar(
           onTap: onTabTapped,
           currentIndex: _currentIndex,
           items: [
             new BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('Calendar'),
+              icon: new Icon(Icons.calendar_today),
+              title: new Text('Calendar', style: TextStyle(fontFamily: 'PrintClearly.ttf'),),
             ),
             new BottomNavigationBarItem(
-              icon: new Icon(Icons.mail),
+              icon: new Icon(Icons.star),
               title: new Text('Galaxy'),
             ),
             new BottomNavigationBarItem(
-              icon: new Icon(Icons.person),
+              icon: new Icon(Icons.add),
               title: new Text('Task input'),
             ),
           ]),

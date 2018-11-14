@@ -6,7 +6,7 @@ class TaskEntering extends StatelessWidget {
     // TODO: implement build
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Enter new task"),
+        title: new Text("Enter new task", ),
         backgroundColor: Colors.deepPurple,
       ),
       body: new Container(
