@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import './galaxy.dart';
 import './calendar.dart';
 import './home_widget.dart';
+import './splash_screen.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,7 +19,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'PrintClearly.ttf',
         primarySwatch: Colors.deepPurple,
       ),
-      home: Home(),
+      home: SplashScreen(),
+      routes: <String, WidgetBuilder>{
+        '/Home': (BuildContext context) => Home()
+      },
     );
   }
 }
