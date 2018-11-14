@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './galaxy.dart';
 import './task_input_screen.dart';
 import './placeholder.dart';
+import './calendar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class Home extends StatefulWidget {
 class _Home_State extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    Calendar(),
     Galaxy(),
     TaskEntering()
   ];
