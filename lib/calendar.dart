@@ -33,7 +33,21 @@ class CalendarWidget extends State<Calendar> {
             ),
           ),
           child: Column(
-
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  FlatButton(
+                      onPressed: null,
+                      child: Image.asset('assets/weekCalendarScreen/sundayMoon.png')
+                  ),
+                  FlatButton(
+                    onPressed: null,
+                    child: Image.asset('assets/weekCalendarScreen/mondayMoon.png')
+                  )
+                ],
+              )
+            ],
           ),
         )
     );
