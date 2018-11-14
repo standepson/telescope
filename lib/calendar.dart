@@ -15,7 +15,7 @@ class CalendarWidget extends State<Calendar> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          padding: const EdgeInsets.fromLTRB(0.0, 150.0, 0.0, 100.0),
+          padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 25.0),
       // Add box decoration
       decoration: BoxDecoration(
         // Box decoration takes a gradient
@@ -113,7 +113,7 @@ class CalendarWidget extends State<Calendar> {
               ],
             ),
           ),
-          Image.asset('assets/weekCalendarScreen/key.png', height: 300.0, width: 300.0,),
+          Image.asset('assets/weekCalendarScreen/key.png', height: 150.0, width: 200.0,),
         ],
       ),
     )
