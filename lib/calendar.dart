@@ -83,7 +83,7 @@ class CalendarWidget extends State<Calendar> {
             ),
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 0.0),
+            padding: EdgeInsets.fromLTRB((MediaQuery.of(context).size.width) * .03, 0.0, (MediaQuery.of(context).size.width) * .03, 0.0),
             child: Row(
               children: <Widget>[
                 FlatButton(
