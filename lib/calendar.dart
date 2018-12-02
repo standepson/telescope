@@ -57,7 +57,6 @@ class CalendarWidget extends State<Calendar> {
           ),
           Container(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 FlatButton(
                     onPressed: null,
@@ -86,7 +85,6 @@ class CalendarWidget extends State<Calendar> {
           Container(
             padding: EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 0.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 FlatButton(
                     onPressed: null,
