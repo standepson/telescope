@@ -43,15 +43,15 @@ class CalendarWidget extends State<Calendar> {
                     onPressed: null,
                     child: Image.asset(
                       'assets/weekCalendarScreen/sundayMoon.png',
-                      width: 80.0,
-                      height: 80.0,
+                      width: (MediaQuery.of(context).size.width) * .20,
+                      height: (MediaQuery.of(context).size.width) * .20,
                     )),
                 FlatButton(
                     onPressed: null,
                     child: Image.asset(
                         'assets/weekCalendarScreen/mondayMoon.png',
-                        width: 80.0,
-                        height: 80.0))
+                        width: (MediaQuery.of(context).size.width) * .20,
+                        height: (MediaQuery.of(context).size.width) * .20,))
               ],
             ),
           ),
@@ -63,22 +63,22 @@ class CalendarWidget extends State<Calendar> {
                     onPressed: null,
                     child: Image.asset(
                       'assets/weekCalendarScreen/saturdayMoon.png',
-                      width: 80.0,
-                      height: 80.0,
+                      width: (MediaQuery.of(context).size.width) * .20,
+                      height: (MediaQuery.of(context).size.width) * .20,
                     )),
                 FlatButton(
                     onPressed: null,
                     child: Image.asset(
                       'assets/weekCalendarScreen/yourWeek.png',
-                      width: 150.0,
-                      height: 150.0,
+                      width: (MediaQuery.of(context).size.width) * .30,
+                      height: (MediaQuery.of(context).size.width) * .30,
                     )),
                 FlatButton(
                     onPressed: null,
                     child: Image.asset(
                       'assets/weekCalendarScreen/tuesdayMoon-07.png',
-                      width: 80.0,
-                      height: 80.0,
+                      width: (MediaQuery.of(context).size.width) * .20,
+                      height: (MediaQuery.of(context).size.width) * .20,
                     ))
               ],
             ),
@@ -92,28 +92,28 @@ class CalendarWidget extends State<Calendar> {
                     onPressed: null,
                     child: Image.asset(
                         'assets/weekCalendarScreen/fridayMoon.png',
-                    width: 80.0,
-                    height: 80.0,)
+                    width: (MediaQuery.of(context).size.width) * .20,
+                    height: (MediaQuery.of(context).size.width) * .20,)
                 ),
                 FlatButton(
                     onPressed: null,
                     child: Image.asset(
                         'assets/weekCalendarScreen/thursdayMoon.png',
-                    width: 85.0,
-                    height: 85.0
+                    width: (MediaQuery.of(context).size.width) * .20,
+                    height: (MediaQuery.of(context).size.width) * .20,
                     )
                 ),
                FlatButton(
                    onPressed: null,
                    child: Image.asset(
                        'assets/weekCalendarScreen/wednesdayMoon-07.png',
-                   width: 85.0,
-                   height: 85.0,)
+                   width: (MediaQuery.of(context).size.width) * .20,
+                   height: (MediaQuery.of(context).size.width) * .20,)
                )
               ],
             ),
           ),
-          Image.asset('assets/weekCalendarScreen/key.png', height: 150.0, width: 200.0,),
+          Image.asset('assets/weekCalendarScreen/key.png', height: (MediaQuery.of(context).size.width) * .40, width: (MediaQuery.of(context).size.width) * .50),
         ],
       ),
     )
