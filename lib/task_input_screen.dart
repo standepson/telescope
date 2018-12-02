@@ -66,7 +66,7 @@ class TaskEntering extends StatelessWidget {
                   Container(
                     width: MediaQuery.of(context).size.width,
                     child:
-                    Text('Deadline Date:',
+                    Text('Deadline:',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             fontSize: 24.0,
