@@ -6,14 +6,13 @@ class MyApp extends StatefulWidget {
   MyAppState createState() => MyAppState();
 }
 
-class MyAppState extends State<MyApp> with TickerProviderStateMixin {
+class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBindingObserver {
   AnimationController controller;
-
+  AppLifecycleState _appLifecycleState;
   String get timerString {
     Duration duration = controller.duration * controller.value;
     return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
-
   @override
   void initState() {
     super.initState();
@@ -21,6 +20,20 @@ class MyAppState extends State<MyApp> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(seconds: 70),
     );
+    WidgetsBinding.instance.addObserver(this);
+  }
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state){
+    setState(() {
+      _appLifecycleState = state;
+      print("My App State: $_appLifecycleState");
+      if (_appLifecycleState == AppLifecycleState.resumed){
+        controller = AnimationController(
+          vsync: this,
+          duration: Duration(seconds: 70),
+        );
+      }
+    });
   }
 
   @override
