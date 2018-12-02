@@ -50,6 +50,7 @@ flutter:
      - assets/galaxyScreen/star.png
      - assets/daysOfTheWeekScreens/background.png
      - assets/splashPage.png
+     - assets/inputTaskScreenTitle.png
   fonts:
       - family: PrintClearly
         fonts:
