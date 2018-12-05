@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './day_of_week_screen.dart';
 
 class Calendar extends StatefulWidget {
   @override
@@ -40,14 +41,24 @@ class CalendarWidget extends State<Calendar> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 FlatButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                      );
+                    },
                     child: Image.asset(
                       'assets/weekCalendarScreen/sundayMoon.png',
                       width: (MediaQuery.of(context).size.width) * .20,
                       height: (MediaQuery.of(context).size.width) * .20,
                     )),
                 FlatButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Monday"))
+                      );
+                    },
                     child: Image.asset(
                         'assets/weekCalendarScreen/mondayMoon.png',
                         width: (MediaQuery.of(context).size.width) * .20,
@@ -59,7 +70,12 @@ class CalendarWidget extends State<Calendar> {
             child: Row(
               children: <Widget>[
                 FlatButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Saturday"))
+                      );
+                    },
                     child: Image.asset(
                       'assets/weekCalendarScreen/saturdayMoon.png',
                       width: (MediaQuery.of(context).size.width) * .20,
@@ -73,7 +89,12 @@ class CalendarWidget extends State<Calendar> {
                       height: (MediaQuery.of(context).size.width) * .30,
                     )),
                 FlatButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Tuesday"))
+                      );
+                    },
                     child: Image.asset(
                       'assets/weekCalendarScreen/tuesdayMoon-07.png',
                       width: (MediaQuery.of(context).size.width) * .20,
@@ -87,14 +108,24 @@ class CalendarWidget extends State<Calendar> {
             child: Row(
               children: <Widget>[
                 FlatButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Friday"))
+                      );
+                    },
                     child: Image.asset(
                         'assets/weekCalendarScreen/fridayMoon.png',
                     width: (MediaQuery.of(context).size.width) * .20,
                     height: (MediaQuery.of(context).size.width) * .20,)
                 ),
                 FlatButton(
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Thursday"))
+                      );
+                    },
                     child: Image.asset(
                         'assets/weekCalendarScreen/thursdayMoon.png',
                     width: (MediaQuery.of(context).size.width) * .20,
@@ -102,7 +133,12 @@ class CalendarWidget extends State<Calendar> {
                     )
                 ),
                FlatButton(
-                   onPressed: null,
+                   onPressed: () {
+                     Navigator.push(
+                         context,
+                         MaterialPageRoute(builder: (context) => DayOfTheWeek("Wednesday"))
+                     );
+                   },
                    child: Image.asset(
                        'assets/weekCalendarScreen/wednesdayMoon-07.png',
                    width: (MediaQuery.of(context).size.width) * .20,
