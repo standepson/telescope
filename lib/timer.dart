@@ -125,18 +125,12 @@ class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBind
                         },
                       ),
                       onPressed: () {
-                        /*if (controller.isAnimating) {
-                                    controller.stop();
-                                  }
-                                  else {
-                                    controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
-                                  }
-                                  */
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Monday()),
-                        );
+                        if (controller.isAnimating) {
+                          controller.stop();
+                        }
+                        else {
+                          controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
+                        }
                       },
                     )
                   ],
