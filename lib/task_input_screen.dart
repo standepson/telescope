@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class TaskEntering extends StatelessWidget {
   List<DropdownMenuItem<int>> listDrop = [];
+  List<String> _dates = ['1', '2', '3', '4', '5', '6', '7'];
+  int numDays;
   void loadData() {
     listDrop.add(new DropdownMenuItem(child: new Text('1 day'), value: 1,));
     listDrop.add(new DropdownMenuItem(child: new Text('2 days'), value: 2,));
@@ -81,13 +83,22 @@ class TaskEntering extends StatelessWidget {
                   Container(height: (MediaQuery.of(context).size.height) * .01),
                   Container(
                     width: MediaQuery.of(context).size.width,
+
                     child:
-                    Text('Deadline in :',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                            fontSize: 24.0,
-                            fontFamily: 'PrintClearly',
-                            color: Colors.white)),
+
+                    DropdownButton<String>(
+                        items: _dates.map((String val) {
+                          return new DropdownMenuItem<String>(
+                            value: val,
+                            child: new Text(val),
+                          );
+                        }).toList(),
+                        hint: Text("In how many days"),
+                        onChanged: (newVal) {
+                          numDays = int.tryParse(newVal);
+                          print(numDays);
+
+                        })
                   ),
                 ],
               ),
