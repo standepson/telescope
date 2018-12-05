@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class MyApp extends StatefulWidget {
+class TimerScreen extends StatefulWidget {
+  int _TaskDuration;
+  TimerScreen(this._TaskDuration);
+
   @override
-  MyAppState createState() => MyAppState();
+  Timer createState() => Timer();
 }
 
-class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBindingObserver {
+class Timer extends State<TimerScreen> with TickerProviderStateMixin, WidgetsBindingObserver {
   AnimationController controller;
   AppLifecycleState _appLifecycleState;
   String get timerString {
@@ -30,7 +33,7 @@ class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBind
       if (_appLifecycleState == AppLifecycleState.resumed){
         controller = AnimationController(
           vsync: this,
-          duration: Duration(seconds: 70),
+          duration: Duration(seconds: widget._TaskDuration),
         );
       }
     });
@@ -125,18 +128,12 @@ class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBind
                         },
                       ),
                       onPressed: () {
-                        /*if (controller.isAnimating) {
-                                    controller.stop();
-                                  }
-                                  else {
-                                    controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
-                                  }
-                                  */
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Monday()),
-                        );
+                        if (controller.isAnimating) {
+                          controller.stop();
+                        }
+                        else {
+                          controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
+                        }
                       },
                     )
                   ],
