@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'task_screen.dart';
+import 'task_button.dart';
 
 class DayOfTheWeek extends StatelessWidget {
   String _dayName;
@@ -42,9 +42,9 @@ class DayOfTheWeek extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            Task(),
-            Task(),
-            Task(),
+            Task("Homework", 60),
+            Task("Study", 60),
+            Task("Exercise", 60),
           ],
         ),
       ),
