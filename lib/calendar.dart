@@ -14,9 +14,16 @@ class CalendarWidget extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
-    double radius= (MediaQuery.of(context).size.width) * .1666;
+    double radius= (MediaQuery.of(context).size.width) * .33;
     double scrwidth= (MediaQuery.of(context).size.width);
     double center= scrwidth * .5;
+    double centery;
+    if((MediaQuery.of(context).size.height)< 1.4* scrwidth ){
+      centery = (MediaQuery.of(context).size.height) *.5 ;
+    }
+    else {
+      centery=center;
+    }
     return Scaffold(
         body: Container(
           padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 25.0),
@@ -37,134 +44,138 @@ class CalendarWidget extends State<Calendar> {
               ],
             ),
           ),
-          child: Column(
-            children: <Widget>[
-              new Positioned(
-                left: center - .4339* radius,
-                top: center - .90097 * radius,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/sundayMoon.png',
-                      width: scrwidth * .20,
-                      height: scrwidth * .20,
-                    )),
-              ),
-              new Positioned(
-                left: center + .4339* radius,
-                top: center - .90097 * radius,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/mondayMoon.png',
-                      width: scrwidth * .20,
-                      height: scrwidth * .20,
-                    )),
-              ),
-              new Positioned(
-                left: center - .9749* radius,
-                top: center - .2225 * radius,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/saturdayMoon.png',
-                      width: scrwidth * .20,
-                      height: scrwidth * .20,
-                    )),
-              ),
-              new Positioned(
-                left: center,
-                top: center,
-                child: FlatButton(
-                    onPressed: null,
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/yourWeek.png',
-                      width: (MediaQuery.of(context).size.width) * .30,
-                      height: (MediaQuery.of(context).size.width) * .30,
-                    )),
-              ),
-              new Positioned(
-                left: center + .9749* radius,
-                top: center - .2225 * radius,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/tuesdayMoon-07.png',
-                      width: scrwidth * .20,
-                      height: scrwidth * .20,
-                    )),
-              ),
-              new Positioned(
-                left: center - .7818* radius,
-                top: center + .6235 * radius,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/fridayMoon.png',
-                      width: scrwidth * .20,
-                      height: scrwidth * .20,
-                    )),
-              ),
-              new Positioned(
-                left: center + .7818* radius,
-                top: center + .6235 * radius,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/wednesdayMoon-07.png',
-                      width: scrwidth * .20,
-                      height: scrwidth * .20,
-                    )),
-              ),
-              new Positioned(
-                left: center,
-                top: center + radius,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/weekCalendarScreen/thursdayMoon.png',
-                      width: scrwidth * .20,
-                      height: scrwidth * .20,
-                    )),
-              ),
-              Image.asset('assets/weekCalendarScreen/key.png', height: (MediaQuery.of(context).size.width) * .40, width: (MediaQuery.of(context).size.width) * .50),
-            ],
-          ),
+          child: new Stack(
+              children: <Widget>[
+                new Positioned(
+                  left: center - .4339* radius - scrwidth * .1,
+                  top: centery - .90097 * radius - scrwidth * .1,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/sundayMoon.png',
+                        width: scrwidth * .20,
+                        height: scrwidth * .20,
+                      )),
+                ),
+                new Positioned(
+                  left: center + .4339* radius - scrwidth * .1,
+                  top: centery - .90097 * radius - scrwidth * .1,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/mondayMoon.png',
+                        width: scrwidth * .20,
+                        height: scrwidth * .20,
+                      )),
+                ),
+                new Positioned(
+                  left: center - .9749* radius - scrwidth * .1,
+                  top: centery - .2225 * radius - scrwidth * .1,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/saturdayMoon.png',
+                        width: scrwidth * .20,
+                        height: scrwidth * .20,
+                      )),
+                ),
+                new Positioned(
+                  left: center - scrwidth * .16304347,
+                  top: centery - scrwidth * .15,
+                  child: FlatButton(
+                      onPressed: null,
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/yourWeek.png',
+                        width: (MediaQuery.of(context).size.width) * .30,
+                        height: (MediaQuery.of(context).size.width) * .30,
+                      )),
+                ),
+                new Positioned(
+                  left: center + .9749* radius - scrwidth * .1,
+                  top: centery - .2225 * radius - scrwidth * .1,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/tuesdayMoon-07.png',
+                        width: scrwidth * .20,
+                        height: scrwidth * .20,
+                      )),
+                ),
+                new Positioned(
+                  left: center - .7818* radius - scrwidth * .1,
+                  top: centery + .6235 * radius - scrwidth * .1,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/fridayMoon.png',
+                        width: scrwidth * .20,
+                        height: scrwidth * .20,
+                      )),
+                ),
+                new Positioned(
+                  left: center + .7818* radius - scrwidth * .1,
+                  top: centery + .6235 * radius - scrwidth * .1,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/wednesdayMoon-07.png',
+                        width: scrwidth * .20,
+                        height: scrwidth * .20,
+                      )),
+                ),
+                new Positioned(
+                  left: center - scrwidth * .1,
+                  top: centery + radius - scrwidth * .1,
+                  child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/weekCalendarScreen/thursdayMoon.png',
+                        width: scrwidth * .20,
+                        height: scrwidth * .20,
+                      )),
+                ),
+                new Positioned(
+                  left: center - scrwidth * .25,
+                  top: centery*2,
+                  child: new Image.asset('assets/weekCalendarScreen/key.png', height: scrwidth * .40, width: scrwidth * .50),
+                ),
+               ],
+           ),
         )
     );
   }
