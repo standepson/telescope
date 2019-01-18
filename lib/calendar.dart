@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import './day_of_week_screen.dart';
+import './task_button.dart';
+import './global.dart' as globals;
 
 class Calendar extends StatefulWidget {
   @override
@@ -11,6 +13,8 @@ class CalendarWidget extends State<Calendar> {
   final mediumBlue = const Color(0xFF677191);
   final blue = const Color(0xFFB0BBCF);
   final lightBlue = const Color(0xFFDEEAF6);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +57,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday", globals.sundayTasks))
                         );
                       },
                       child: Image.asset(
@@ -69,7 +73,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Monday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Monday",globals.mondayTasks))
                         );
                       },
                       child: Image.asset(
@@ -85,7 +89,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Saturday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Saturday", globals.tuesdayTasks))
                         );
                       },
                       child: Image.asset(
@@ -112,7 +116,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Tuesday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Tuesday",globals.tuesdayTasks))
                         );
                       },
                       child: Image.asset(
@@ -128,7 +132,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Friday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Friday",globals.fridayTasks))
                         );
                       },
                       child: Image.asset(
@@ -144,7 +148,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Wednesday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Wednesday",globals.wednesdayTasks))
                         );
                       },
                       child: Image.asset(
@@ -160,7 +164,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Thursday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Thursday",globals.thursdayTasks))
                         );
                       },
                       child: Image.asset(

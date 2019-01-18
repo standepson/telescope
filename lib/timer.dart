@@ -23,7 +23,7 @@ class Timer extends State<TimerScreen>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 70),
+      duration: Duration(minutes: widget._TaskDuration),
     );
     WidgetsBinding.instance.addObserver(this);
   }
@@ -36,7 +36,7 @@ class Timer extends State<TimerScreen>
       if (_appLifecycleState == AppLifecycleState.resumed) {
         controller = AnimationController(
           vsync: this,
-          duration: Duration(seconds: widget._TaskDuration),
+          duration: Duration(minutes: widget._TaskDuration),
         );
       }
     });

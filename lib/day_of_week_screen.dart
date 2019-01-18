@@ -3,8 +3,9 @@ import 'task_button.dart';
 
 class DayOfTheWeek extends StatelessWidget {
   String _dayName;
+  List<Task> _tasksForTheDay;
 
-  DayOfTheWeek(this._dayName);
+  DayOfTheWeek(this._dayName, this._tasksForTheDay);
 
   @override
   Widget build(BuildContext context) {
