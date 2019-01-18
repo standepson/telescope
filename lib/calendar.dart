@@ -69,7 +69,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Monday"))
                         );
                       },
                       child: Image.asset(
@@ -85,7 +85,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Saturday"))
                         );
                       },
                       child: Image.asset(
@@ -112,7 +112,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Tuesday"))
                         );
                       },
                       child: Image.asset(
@@ -128,7 +128,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Friday"))
                         );
                       },
                       child: Image.asset(
@@ -144,7 +144,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Wednesday"))
                         );
                       },
                       child: Image.asset(
@@ -160,7 +160,7 @@ class CalendarWidget extends State<Calendar> {
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday"))
+                            MaterialPageRoute(builder: (context) => DayOfTheWeek("Thursday"))
                         );
                       },
                       child: Image.asset(
