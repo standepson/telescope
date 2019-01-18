@@ -9,10 +9,7 @@ class Galaxy extends StatelessWidget {
     return new Scaffold(
       body: new Container(
         decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("assets/galaxyScreen/emptyGalaxy.png"),
-            fit: BoxFit.cover,
-          ),
+          color: Colors.black
         ),
         child: new Stack(
           children: <Widget>[
