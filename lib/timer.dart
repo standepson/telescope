@@ -9,13 +9,15 @@ class TimerScreen extends StatefulWidget {
   Timer createState() => Timer();
 }
 
-class Timer extends State<TimerScreen> with TickerProviderStateMixin, WidgetsBindingObserver {
+class Timer extends State<TimerScreen>
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   AnimationController controller;
   AppLifecycleState _appLifecycleState;
   String get timerString {
     Duration duration = controller.duration * controller.value;
     return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
+
   @override
   void initState() {
     super.initState();
@@ -25,12 +27,13 @@ class Timer extends State<TimerScreen> with TickerProviderStateMixin, WidgetsBin
     );
     WidgetsBinding.instance.addObserver(this);
   }
+
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state){
+  void didChangeAppLifecycleState(AppLifecycleState state) {
     setState(() {
       _appLifecycleState = state;
       print("My App State: $_appLifecycleState");
-      if (_appLifecycleState == AppLifecycleState.resumed){
+      if (_appLifecycleState == AppLifecycleState.resumed) {
         controller = AnimationController(
           vsync: this,
           duration: Duration(seconds: widget._TaskDuration),
@@ -44,7 +47,7 @@ class Timer extends State<TimerScreen> with TickerProviderStateMixin, WidgetsBin
     ThemeData themeData = Theme.of(context);
     return Scaffold(
       body: Container(
-        // Add box decoration
+          // Add box decoration
           decoration: BoxDecoration(
             // Box decoration takes a gradient
             gradient: LinearGradient(
@@ -65,10 +68,13 @@ class Timer extends State<TimerScreen> with TickerProviderStateMixin, WidgetsBin
           padding: const EdgeInsets.all(32.0),
           child: Column(children: <Widget>[
             Container(
-                padding: const EdgeInsets.fromLTRB(0.0, 30.0, 0.0, 0.0),
-                child:Text(
+                padding: const EdgeInsets.fromLTRB(0.0, 60.0, 0.0, 0.0),
+                child: Text(
                   "Your star is growing...",
-                  style: themeData.textTheme.display1,
+                  style: TextStyle(
+                      fontFamily: 'PrintClearly',
+                      fontSize: 40.0,
+                      color: Colors.white),
                   textAlign: TextAlign.justify,
                 )),
             Expanded(
@@ -84,36 +90,57 @@ class Timer extends State<TimerScreen> with TickerProviderStateMixin, WidgetsBin
                                       (BuildContext context, Widget child) {
                                     return new CustomPaint(
                                         painter: TimerPainter(
-                                          animation: controller,
-                                          backgroundColor: Colors.white,
-                                          color: themeData.indicatorColor,
-                                        ));
+                                      animation: controller,
+                                      backgroundColor: Colors.white,
+                                      color: themeData.indicatorColor,
+                                    ));
                                   })),
                           Align(
                               alignment: FractionalOffset.center,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-
                                   AnimatedBuilder(
                                     animation: controller,
-                                    builder: (BuildContext context, Widget child){
+                                    builder:
+                                        (BuildContext context, Widget child) {
                                       return new Text(
                                         timerString,
-                                        style: themeData.textTheme.display4,
+                                        style: TextStyle(
+                                          fontFamily: 'PrintClearly',
+                                          fontSize: 80.0,
+                                          color: Colors.white),
                                       );
                                     },
                                   )
                                 ],
-                              )
-                          ),
+                              )),
                         ])))),
+            Container(
+              child: RaisedButton(
+                color: Colors.white,
+                onPressed: () {
+                  quitWarning(context);
+                },
+                child: Text(
+                  'EXIT',
+                  style: TextStyle(
+                      fontFamily: 'PrintClearly',
+                      fontSize: 15.0,
+                      color: Colors.deepPurple),
+                ),
+              ),
+            ),
             Container(
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
                 child: Text(
                   "Focus...",
-                  style: themeData.textTheme.display1,
+                  style: TextStyle(
+                      fontFamily: 'PrintClearly',
+                      fontSize: 40.0,
+                      color: Colors.white),
                 )),
             Container(
                 margin: EdgeInsets.all(8.0),
@@ -123,28 +150,57 @@ class Timer extends State<TimerScreen> with TickerProviderStateMixin, WidgetsBin
                     FloatingActionButton(
                       child: AnimatedBuilder(
                         animation: controller,
-                        builder: (BuildContext context, Widget child){
-                          return new Icon(controller.isAnimating ? Icons.pause : Icons.play_arrow);
+                        builder: (BuildContext context, Widget child) {
+                          return new Icon(controller.isAnimating
+                              ? Icons.pause
+                              : Icons.play_arrow);
                         },
                       ),
                       onPressed: () {
                         if (controller.isAnimating) {
                           controller.stop();
-                        }
-                        else {
-                          controller.reverse(from: controller.value == 0 ? 1.0 : controller.value);
+                        } else {
+                          controller.reverse(
+                              from: controller.value == 0
+                                  ? 1.0
+                                  : controller.value);
                         }
                       },
                     )
                   ],
-                )
-
-            )
+                ))
           ])),
     );
-
-
   }
+}
+void quitWarning(BuildContext context) {
+  var alertDialog = AlertDialog(
+    title: Text('If you quit now your star will die. Do you really want to quit?', style: TextStyle(
+        fontFamily: 'PrintClearly',
+        fontSize: 24.0,
+        color: Colors.black),),
+    actions: <Widget>[
+      FlatButton(onPressed: () {
+        Navigator.pop(context);
+        Navigator.pop(context);
+      }, child: Text('Yes, I am an empty shell',style: TextStyle(
+  fontFamily: 'PrintClearly',
+  fontSize: 16.0,
+  color: Colors.deepPurpleAccent)),),
+      FlatButton(onPressed: () {
+        Navigator.pop(context);
+      }, child: Text('No',style: TextStyle(
+  fontFamily: 'PrintClearly',
+  fontSize: 16.0,
+  color: Colors.deepPurpleAccent)),)
+    ],
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alertDialog;
+      }
+  );
 }
 
 class TimerPainter extends CustomPainter {
