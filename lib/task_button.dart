@@ -19,7 +19,7 @@ class Task extends StatelessWidget {
       },
       child: Text(
         _taskName + ": " + _taskDuration.toString() + " minutes",
-        style: TextStyle(fontFamily: 'PrintClearly', fontSize: 30.0, color: Colors.white),
+        style: TextStyle(fontFamily: 'PrintClearly', fontSize: 40.0, color: Colors.white),
       ),
     );
   }
