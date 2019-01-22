@@ -23,11 +23,12 @@ class GalaxyState extends State<Galaxy> {
       height: MediaQuery.of(context).size.height,
       decoration: new BoxDecoration(
         image: new DecorationImage(
-          image: new AssetImage("assets/galaxyBackgroundHandDrawn.png"),
+          image: new AssetImage("assets/galaxyBackground.png"),
           fit: BoxFit.cover,
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
@@ -58,12 +59,12 @@ class GalaxyState extends State<Galaxy> {
               ],
             ),
             width: MediaQuery.of(context).size.width,
-            height: (MediaQuery.of(context).size.height) * .65,
+            height: (MediaQuery.of(context).size.height) * .80,
           ),
           Container(
             child: FlatButton(
-              child: Image.asset(
-                'assets/telescope.png', height: 210.0, width: 200.0,
+              child: Text(
+                'Tap here to see galaxy come alive', style: TextStyle(fontFamily: 'PrintClearly', fontSize: 20.0, color: Colors.white),
               ),
               onPressed: _changeOpacity,
             ),

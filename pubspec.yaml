@@ -51,7 +51,7 @@ flutter:
      - assets/daysOfTheWeekScreens/background.png
      - assets/splashPage.png
      - assets/inputTaskScreenTitle.png
-     - assets/galaxyBackgroundHandDrawn.png
+     - assets/galaxyBackground.png
      - assets/telescope.png
   fonts:
       - family: PrintClearly
