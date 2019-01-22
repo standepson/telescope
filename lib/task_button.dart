@@ -10,7 +10,7 @@ class Task extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new RaisedButton(
+    return new FlatButton(
       onPressed: () {
         Navigator.push(
             context,
@@ -19,7 +19,7 @@ class Task extends StatelessWidget {
       },
       child: Text(
         _taskName + ": " + _taskDuration.toString() + " minutes",
-        style: TextStyle(fontSize: 30.0),
+        style: TextStyle(fontFamily: 'PrintClearly', fontSize: 30.0, color: Colors.white),
       ),
     );
   }
