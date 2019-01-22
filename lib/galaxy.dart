@@ -11,7 +11,7 @@ class GalaxyState extends State<Galaxy> {
   double opacityLevel = 1.0;
 
   void _changeOpacity() {
-    setState(() => opacityLevel = opacityLevel == 0 ? 1.0 : 0.0);
+      setState(() => opacityLevel = opacityLevel == 0 ? 1.0 : 0.0);
   }
 
   @override
@@ -64,7 +64,7 @@ class GalaxyState extends State<Galaxy> {
           Container(
             child: FlatButton(
               child: Text(
-                'Tap here to see galaxy come alive', style: TextStyle(fontFamily: 'PrintClearly', fontSize: 20.0, color: Colors.white),
+                'Tap here to your galaxy', style: TextStyle(fontFamily: 'PrintClearly', fontSize: 20.0, color: Colors.white),
               ),
               onPressed: _changeOpacity,
             ),
