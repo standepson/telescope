@@ -16,7 +16,7 @@ class _Home_State extends State<Home> {
   final List<Widget> _children = [
     Calendar(),
     Galaxy(),
-    TaskEntering()
+    TaskInput()
   ];
 
   @override
