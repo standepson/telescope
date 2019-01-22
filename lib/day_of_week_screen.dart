@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'task_button.dart';
+import './global.dart' as globals;
 
 class DayOfTheWeek extends StatelessWidget {
   String _dayName;
@@ -34,19 +35,7 @@ class DayOfTheWeek extends StatelessWidget {
           ),
         ),
         child: new Column(
-          children: <Widget>[
-            Container(
-              child:
-              Text(
-                _dayName,
-                style: TextStyle(fontSize: 60.0),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Task("Homework", 60),
-            Task("Study", 60),
-            Task("Exercise", 60),
-          ],
+          children: _tasksForTheDay,
         ),
       ),
     );
