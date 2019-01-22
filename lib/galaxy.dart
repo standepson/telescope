@@ -40,8 +40,8 @@ class GalaxyState extends State<Galaxy> {
                     child: AnimatedOpacity(
                         child: Image.asset(
                           'assets/galaxyScreen/star.png',
-                          height: 30.0,
-                          width: 30.0,
+                          height: rng.nextInt(30) * 1.0,
+                          width: rng.nextInt(30) * 1.0,
                         ),
                         opacity: opacityLevel,
                         duration: Duration(seconds: 1))),
@@ -51,8 +51,8 @@ class GalaxyState extends State<Galaxy> {
                     child: AnimatedOpacity(
                         child: Image.asset(
                           'assets/galaxyScreen/star.png',
-                          height: 30.0,
-                          width: 30.0,
+                          height: rng.nextInt(30) * 1.0,
+                          width: rng.nextInt(30) * 1.0,
                         ),
                         opacity: opacityLevel,
                         duration: Duration(seconds: 1)))
