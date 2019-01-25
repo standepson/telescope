@@ -9,7 +9,6 @@ class Galaxy extends StatefulWidget {
 
 class GalaxyState extends State<Galaxy> {
   var rng = Random();
-  var gnr = Random();
   double opacityLevel = 1.0;
 
   void _changeOpacity() {
@@ -18,7 +17,6 @@ class GalaxyState extends State<Galaxy> {
 
   @override
   Widget build(BuildContext context) {
-    //globals.seed = gnr.nextInt(10000);
     return Scaffold(
         body: Container(
       padding: EdgeInsets.fromLTRB(2.0, 10.0, 2.0, 10.0),
@@ -65,7 +63,7 @@ List<Star> createChildrenTexts() {
 }
 
 class Star extends StatelessWidget {
-  var rng = Random(globals.seed);
+  var rng = Random();
   double opacityLevel = 1.0;
 
   @override
