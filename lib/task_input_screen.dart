@@ -7,6 +7,12 @@ class TaskInput extends StatefulWidget {
 class TaskEntering extends State<TaskInput> {
   List<DropdownMenuItem<int>> listDrop = [];
   int numDays;
+  final nameController = TextEditingController();
+  final hoursController = TextEditingController();
+
+  void saveTask(){
+
+  }
 
   void loadData() {
     listDrop = [];
@@ -72,6 +78,7 @@ class TaskEntering extends State<TaskInput> {
                             color: Colors.white)),
                   ),
                   TextField(
+                    controller: nameController,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(
                           fontSize: 18.0,
@@ -93,6 +100,7 @@ class TaskEntering extends State<TaskInput> {
                             color: Colors.white)),
                   ),
                   TextField(
+                    controller: hoursController,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(
@@ -133,7 +141,7 @@ class TaskEntering extends State<TaskInput> {
                           })),
                   Container(
                     child: RaisedButton(
-                      onPressed: null,
+                      onPressed: () { saveTask();},
                       child: Text(
                         'Save Task',
                         style: TextStyle(
