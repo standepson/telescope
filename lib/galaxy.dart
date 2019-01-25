@@ -65,20 +65,18 @@ List<Star> createChildrenTexts() {
 }
 
 class Star extends StatelessWidget {
-  var rng = Random(globals.seed);
   double opacityLevel = 1.0;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        left: rng.nextInt(MediaQuery.of(context).size.width.floor()) * 1.0,
-        top: rng.nextInt(500) * 1.0,
-        right: rng.nextInt(MediaQuery.of(context).size.width.floor()) * 1.0,
+        left: globals.rng.nextInt(MediaQuery.of(context).size.width.floor()) * 1.0,
+        top: globals.rng.nextInt(MediaQuery.of(context).size.height.floor()) * .87,
         child: AnimatedOpacity(
             child: Image.asset(
               'assets/galaxyScreen/star.png',
-              height: rng.nextInt(30) * 1.0 + 5.0,
-              width: rng.nextInt(30) * 1.0 + 5.0,
+              height: globals.rng.nextInt(30) * 1.0 + 5.0,
+              width: globals.rng.nextInt(30) * 1.0 + 5.0,
             ),
             opacity: opacityLevel,
             duration: Duration(seconds: 1)));
