@@ -9,4 +9,4 @@ List<Task> thursdayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exerc
 List<Task> fridayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exercise", 60)];
 List<Task> saturdayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exercise", 60)];
 
-
+int numOfStarsCompleted = 50;
