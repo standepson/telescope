@@ -18,7 +18,7 @@ class GalaxyState extends State<Galaxy> {
 
   @override
   Widget build(BuildContext context) {
-    //globals.seed = gnr.nextInt(10000);
+    globals.seed = gnr.nextInt(10000);
     return Scaffold(
         body: Container(
       padding: EdgeInsets.fromLTRB(2.0, 10.0, 2.0, 10.0),
