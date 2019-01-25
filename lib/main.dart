@@ -8,7 +8,6 @@ import './splash_screen.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-
   //colors for background
   @override
   Widget build(BuildContext context) {
