@@ -23,10 +23,7 @@ class GalaxyState extends State<Galaxy> {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       decoration: new BoxDecoration(
-        image: new DecorationImage(
-          image: new AssetImage("assets/galaxyBackground.png"),
-          fit: BoxFit.cover,
-        ),
+        color: Colors.black
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
