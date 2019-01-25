@@ -11,4 +11,6 @@ List<Task> fridayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exercis
 List<Task> saturdayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exercise", 60)];
 
 int numOfStarsCompleted = 50;
+var rng = Random(seed);
 int seed;
+int numDays;

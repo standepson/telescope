@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import './global.dart' as globals;
+
+final nameController = TextEditingController();
+final hoursController = TextEditingController();
 
 class TaskInput extends StatefulWidget {
   @override
   TaskEntering createState() => TaskEntering();
 }
+
 class TaskEntering extends State<TaskInput> {
   List<DropdownMenuItem<int>> listDrop = [];
-  int numDays;
-  final nameController = TextEditingController();
-  final hoursController = TextEditingController();
 
-  void saveTask(){
-
-  }
+  void saveTask() {}
 
   void loadData() {
     listDrop = [];
@@ -126,7 +126,7 @@ class TaskEntering extends State<TaskInput> {
                       width: MediaQuery.of(context).size.width,
                       child: DropdownButton(
                           items: listDrop,
-                          value: numDays,
+                          value: globals.numDays,
                           hint: Text("select num of days",
                               style: TextStyle(
                                   fontSize: 18.0,
@@ -134,14 +134,14 @@ class TaskEntering extends State<TaskInput> {
                                   fontFamily: 'PrintClearly',
                                   color: Colors.white)),
                           onChanged: (value) {
-                            numDays = value;
-                            setState(() {
-
-                            });
+                            globals.numDays = value;
+                            setState(() {});
                           })),
                   Container(
                     child: RaisedButton(
-                      onPressed: () { saveTask();},
+                      onPressed: () {
+                        saveTask();
+                      },
                       child: Text(
                         'Save Task',
                         style: TextStyle(
