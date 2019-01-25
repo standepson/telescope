@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
-import './task_button.dart';
-import './global.dart' as globals;
-
 
 class TaskInput extends StatefulWidget {
   @override
   TaskEntering createState() => TaskEntering();
 }
 class TaskEntering extends State<TaskInput> {
-  final taskNameController = TextEditingController();
-  final numberOfHoursController = TextEditingController();
-  int numDays;
-
-  @override
-  void dispose() {
-    taskNameController.dispose();
-    numberOfHoursController.dispose();
-  }
-
   List<DropdownMenuItem<int>> listDrop = [];
+  int numDays;
+  final nameController = TextEditingController();
+  final hoursController = TextEditingController();
+
+  void saveTask(){
+
+  }
 
   void loadData() {
     listDrop = [];
@@ -65,142 +59,100 @@ class TaskEntering extends State<TaskInput> {
               ),
             ),
             child: Container(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height,
-                padding: const EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 25.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Image.asset('assets/inputTaskScreenTitle.png'),
-                    Container(height: (MediaQuery
-                        .of(context)
-                        .size
-                        .height) * .05),
-                    Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      child: Text('Task Name:',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 24.0,
-                              fontFamily: 'PrintClearly',
-                              color: Colors.white)),
-                    ),
-                    TextField(
-                      controller: taskNameController,
-                      decoration: InputDecoration(
-                        hintStyle: TextStyle(
-                            fontSize: 18.0,
-                            fontStyle: FontStyle.italic,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              padding: const EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 25.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Image.asset('assets/inputTaskScreenTitle.png'),
+                  Container(height: (MediaQuery.of(context).size.height) * .05),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Text('Task Name:',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            fontSize: 24.0,
                             fontFamily: 'PrintClearly',
+                            color: Colors.white)),
+                  ),
+                  TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(
+                          fontSize: 18.0,
+                          fontStyle: FontStyle.italic,
+                          fontFamily: 'PrintClearly',
+                          color: Colors.white),
+                      border: InputBorder.none,
+                      hintText: 'enter name',
+                    ),
+                  ),
+                  Container(height: (MediaQuery.of(context).size.height) * .01),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Text('Number of Hours:',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            fontSize: 24.0,
+                            fontFamily: 'PrintClearly',
+                            color: Colors.white)),
+                  ),
+                  TextField(
+                    controller: hoursController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(
+                          fontSize: 18.0,
+                          fontStyle: FontStyle.italic,
+                          fontFamily: 'PrintClearly',
+                          color: Colors.white),
+                      border: InputBorder.none,
+                      hintText: 'enter number',
+                    ),
+                  ),
+                  Container(height: (MediaQuery.of(context).size.height) * .01),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Text('Number of Days till Deadline:',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            fontSize: 24.0,
+                            fontFamily: 'PrintClearly',
+                            color: Colors.white)),
+                  ),
+                  Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: DropdownButton(
+                          items: listDrop,
+                          value: numDays,
+                          hint: Text("select num of days",
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  fontStyle: FontStyle.italic,
+                                  fontFamily: 'PrintClearly',
+                                  color: Colors.white)),
+                          onChanged: (value) {
+                            numDays = value;
+                            setState(() {
+
+                            });
+                          })),
+                  Container(
+                    child: RaisedButton(
+                      onPressed: () { saveTask();},
+                      child: Text(
+                        'Save Task',
+                        style: TextStyle(
+                            fontFamily: 'PrintClearly',
+                            fontSize: 24.0,
                             color: Colors.white),
-                        border: InputBorder.none,
-                        hintText: 'enter name',
                       ),
                     ),
-                    Container(height: (MediaQuery
-                        .of(context)
-                        .size
-                        .height) * .01),
-                    Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      child: Text('Number of Hours:',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 24.0,
-                              fontFamily: 'PrintClearly',
-                              color: Colors.white)),
-                    ),
-                    TextField(
-                      controller: numberOfHoursController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        hintStyle: TextStyle(
-                            fontSize: 18.0,
-                            fontStyle: FontStyle.italic,
-                            fontFamily: 'PrintClearly',
-                            color: Colors.white),
-                        border: InputBorder.none,
-                        hintText: 'enter number',
-                      ),
-                    ),
-                    Container(height: (MediaQuery
-                        .of(context)
-                        .size
-                        .height) * .01),
-                    Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      child: Text('Number of Days till Deadline:',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 24.0,
-                              fontFamily: 'PrintClearly',
-                              color: Colors.white)),
-                    ),
-                    Container(
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width,
-                        child: DropdownButton(
-                            items: listDrop,
-                            value: numDays,
-                            hint: Text("select num of days",
-                                style: TextStyle(
-                                    fontSize: 18.0,
-                                    fontStyle: FontStyle.italic,
-                                    fontFamily: 'PrintClearly',
-                                    color: Colors.white)),
-                            onChanged: (value) {
-                              numDays = value;
-                              setState(() {
-
-                              });
-                            })),
-                    Container(
-                        child: RaisedButton(
-                          onPressed: null,
-                          child: (Text(
-                            'Save Task',
-                            style: TextStyle(
-                                fontFamily: 'PrintClearly',
-                                fontSize: 24.0,
-                                color: Colors.white),
-                          )
-                          ),
-                        )
-                    ),
-                  ],
-                ))));
-  }
-
-}
-
-class createTask extends StatefulWidget{
-  @override
-  createTaskState createState() => createTaskState();
-}
-
-class createTaskState extends State<createTask> {
-  var now = new DateTime.now();
-  @override
-  Widget build(BuildContext context) {
-    if(now.day + TaskEntering.numdays )
-    return Text('Your Task has been saved sucessfully')
+                  )
+                ],
+              ),
+            )));
   }
 }
