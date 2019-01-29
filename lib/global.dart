@@ -2,6 +2,7 @@ library my_prj.globals;
 import './task_button.dart';
 import 'dart:math';
 
+List<List> weeklyTask = [mondayTasks, tuesdayTasks, wednesdayTasks, thursdayTasks, fridayTasks, saturdayTasks,sundayTasks];
 List<Task> sundayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exercise", 60)];
 List<Task> mondayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exercise", 60)];
 List<Task> tuesdayTasks = [Task("Homework", 60), Task("Study", 60), Task("Exercise", 60)];

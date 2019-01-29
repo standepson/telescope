@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './global.dart' as globals;
+import './task_button.dart';
 
 final nameController = TextEditingController();
 final hoursController = TextEditingController();
@@ -11,8 +12,6 @@ class TaskInput extends StatefulWidget {
 
 class TaskEntering extends State<TaskInput> {
   List<DropdownMenuItem<int>> listDrop = [];
-
-  void saveTask() {}
 
   void loadData() {
     listDrop = [];
@@ -73,7 +72,7 @@ class TaskEntering extends State<TaskInput> {
                     child: Text('Task Name:',
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                            fontSize: 24.0,
+                            fontSize: 20.0,
                             fontFamily: 'PrintClearly',
                             color: Colors.white)),
                   ),
@@ -92,10 +91,10 @@ class TaskEntering extends State<TaskInput> {
                   Container(height: (MediaQuery.of(context).size.height) * .01),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    child: Text('Number of Hours:',
+                    child: Text('Total Number of Minutes Needed to Complete Task:',
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                            fontSize: 24.0,
+                            fontSize: 20.0,
                             fontFamily: 'PrintClearly',
                             color: Colors.white)),
                   ),
@@ -118,7 +117,7 @@ class TaskEntering extends State<TaskInput> {
                     child: Text('Number of Days till Deadline:',
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                            fontSize: 24.0,
+                            fontSize: 20.0,
                             fontFamily: 'PrintClearly',
                             color: Colors.white)),
                   ),
@@ -139,15 +138,14 @@ class TaskEntering extends State<TaskInput> {
                           })),
                   Container(
                     child: RaisedButton(
-                      onPressed: () {
-                        saveTask();
-                      },
+                      color: Colors.white,
+                      onPressed: () => _saveTask(context),
                       child: Text(
                         'Save Task',
                         style: TextStyle(
                             fontFamily: 'PrintClearly',
                             fontSize: 24.0,
-                            color: Colors.white),
+                            color: Colors.deepPurpleAccent),
                       ),
                     ),
                   )
@@ -156,11 +154,22 @@ class TaskEntering extends State<TaskInput> {
             )));
   }
 }
-class saveTask extends StatelessWidget {
+
+void _saveTask (BuildContext context) {
   var now = new DateTime.now();
+  int timeEachDay = ((int.tryParse(hoursController.text)) / globals.numDays).floor();
+  for (int i = 0; i < globals.numDays; i++) {
+    globals.weeklyTask[((now.add(new Duration(days: i))).weekday) - 1].add(Task(nameController.text, timeEachDay));
+    }
+  final scaffold = Scaffold.of(context);
+  scaffold.showSnackBar(
+    SnackBar(
+      content: const Text('Task saved successfully'),
+    ),
+  );
 
-  @override
-  Widget build(BuildContext context) {
+  nameController.clear();
+  hoursController.clear();
+  globals.numDays = null;
 
-  }
 }
