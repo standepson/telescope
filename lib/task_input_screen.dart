@@ -139,7 +139,7 @@ class TaskEntering extends State<TaskInput> {
                   Container(
                     child: RaisedButton(
                       color: Colors.white,
-                      onPressed: () => _saveTask(context),
+                      onPressed: () =>  setState(() {_saveTask(context);}),
                       child: Text(
                         'Save Task',
                         style: TextStyle(
@@ -171,5 +171,4 @@ void _saveTask (BuildContext context) {
   nameController.clear();
   hoursController.clear();
   globals.numDays = null;
-
 }
