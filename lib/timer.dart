@@ -23,6 +23,8 @@ class Timer extends State<TimerScreen>
     if (timerString == "0:01") {
       globals.weeklyTask[globals.selectedDayOfTheWeek].removeWhere((item) => (item.taskName == widget._taskName &&
       item.taskDuration == widget._taskDuration));
+      //Increment the number of stars
+      globals.numOfStarsCompleted++;
     }
     return timerString;
   }
