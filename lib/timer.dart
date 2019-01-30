@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import './global.dart' as globals;
 
 class TimerScreen extends StatefulWidget {
-  int _TaskDuration;
-  TimerScreen(this._TaskDuration);
+  int _taskDuration;
+  String _taskName;
+  TimerScreen(this._taskName,this._taskDuration);
 
   @override
   Timer createState() => Timer();
@@ -11,11 +13,18 @@ class TimerScreen extends StatefulWidget {
 
 class Timer extends State<TimerScreen>
     with TickerProviderStateMixin, WidgetsBindingObserver {
+
+
   AnimationController controller;
   AppLifecycleState _appLifecycleState;
   String get timerString {
     Duration duration = controller.duration * controller.value;
-    return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+    String timerString = '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+    if (timerString == "0:01") {
+      globals.weeklyTask[globals.selectedDayOfTheWeek].removeWhere((item) => (item.taskName == widget._taskName &&
+      item.taskDuration == widget._taskDuration));
+    }
+    return timerString;
   }
 
   @override
@@ -23,7 +32,7 @@ class Timer extends State<TimerScreen>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(minutes: widget._TaskDuration),
+      duration: Duration(minutes: widget._taskDuration),
     );
     WidgetsBinding.instance.addObserver(this);
   }
@@ -36,7 +45,7 @@ class Timer extends State<TimerScreen>
       if (_appLifecycleState == AppLifecycleState.resumed) {
         controller = AnimationController(
           vsync: this,
-          duration: Duration(minutes: widget._TaskDuration),
+          duration: Duration(minutes: widget._taskDuration),
         );
       }
     });
@@ -118,6 +127,7 @@ class Timer extends State<TimerScreen>
                                 ],
                               )),
                         ])))),
+
             Container(
               child: RaisedButton(
                 color: Colors.white,

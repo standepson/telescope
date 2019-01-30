@@ -15,3 +15,4 @@ int numOfStarsCompleted = 50;
 var rng = Random(seed);
 int seed;
 int numDays;
+int selectedDayOfTheWeek;

@@ -14,7 +14,7 @@ class Task extends StatelessWidget {
       onPressed: () {
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => TimerScreen(_taskDuration))
+            MaterialPageRoute(builder: (context) => TimerScreen(_taskName, _taskDuration))
         );
       },
       child: Text(

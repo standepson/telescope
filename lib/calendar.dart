@@ -55,6 +55,7 @@ class CalendarWidget extends State<Calendar> {
                   top: centery - .90097 * radius - scrwidth * .1,
                   child: FlatButton(
                       onPressed: () {
+                        globals.selectedDayOfTheWeek = 6;
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => DayOfTheWeek("Sunday", globals.sundayTasks))
@@ -71,6 +72,7 @@ class CalendarWidget extends State<Calendar> {
                   top: centery - .90097 * radius - scrwidth * .1,
                   child: FlatButton(
                       onPressed: () {
+                        globals.selectedDayOfTheWeek = 0;
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => DayOfTheWeek("Monday",globals.mondayTasks))
@@ -87,6 +89,7 @@ class CalendarWidget extends State<Calendar> {
                   top: centery - .2225 * radius - scrwidth * .1,
                   child: FlatButton(
                       onPressed: () {
+                        globals.selectedDayOfTheWeek = 5;
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => DayOfTheWeek("Saturday", globals.tuesdayTasks))
@@ -114,6 +117,7 @@ class CalendarWidget extends State<Calendar> {
                   top: centery - .2225 * radius - scrwidth * .1,
                   child: FlatButton(
                       onPressed: () {
+                        globals.selectedDayOfTheWeek = 1;
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => DayOfTheWeek("Tuesday",globals.tuesdayTasks))
@@ -130,6 +134,7 @@ class CalendarWidget extends State<Calendar> {
                   top: centery + .6235 * radius - scrwidth * .1,
                   child: FlatButton(
                       onPressed: () {
+                        globals.selectedDayOfTheWeek = 4;
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => DayOfTheWeek("Friday",globals.fridayTasks))
@@ -146,6 +151,7 @@ class CalendarWidget extends State<Calendar> {
                   top: centery + .6235 * radius - scrwidth * .1,
                   child: FlatButton(
                       onPressed: () {
+                        globals.selectedDayOfTheWeek = 2;
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => DayOfTheWeek("Wednesday",globals.wednesdayTasks))
@@ -162,6 +168,7 @@ class CalendarWidget extends State<Calendar> {
                   top: centery + radius - scrwidth * .1,
                   child: FlatButton(
                       onPressed: () {
+                        globals.selectedDayOfTheWeek = 3;
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => DayOfTheWeek("Thursday",globals.thursdayTasks))
