@@ -91,7 +91,7 @@ class TaskEntering extends State<TaskInput> {
                   Container(height: (MediaQuery.of(context).size.height) * .01),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    child: Text('Total Number of Minutes Needed to Complete Task:',
+                    child: Text('Total Number of Hours Needed:',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             fontSize: 20.0,
@@ -157,7 +157,7 @@ class TaskEntering extends State<TaskInput> {
 
 void _saveTask (BuildContext context) {
   var now = new DateTime.now();
-  int timeEachDay = ((int.tryParse(hoursController.text)) / globals.numDays).floor();
+  int timeEachDay = ((60*double.tryParse(hoursController.text)) / globals.numDays).floor();
   for (int i = 0; i < globals.numDays; i++) {
     globals.weeklyTask[((now.add(new Duration(days: i))).weekday) - 1].add(Task(nameController.text, timeEachDay));
     }
