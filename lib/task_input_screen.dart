@@ -49,6 +49,7 @@ class TaskEntering extends State<TaskInput> {
   Widget build(BuildContext context) {
     loadData();
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
         body: Container(
             decoration: new BoxDecoration(
               image: new DecorationImage(
