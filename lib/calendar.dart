@@ -30,7 +30,7 @@ class CalendarWidget extends State<Calendar> {
     }
     return Scaffold(
         body: Container(
-          padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 25.0),
+          padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 15.0),
           // Add box decoration
           decoration: BoxDecoration(
             // Box decoration takes a gradient

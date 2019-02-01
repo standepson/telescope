@@ -21,7 +21,7 @@ class GalaxyState extends State<Galaxy> {
     globals.seed = gnr.nextInt(10000);
     return Scaffold(
         body: Container(
-      padding: EdgeInsets.fromLTRB(2.0, 10.0, 2.0, 10.0),
+      //padding: EdgeInsets.fromLTRB(2.0, 10.0, 2.0, 10.0),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       decoration: new BoxDecoration(
@@ -31,7 +31,7 @@ class GalaxyState extends State<Galaxy> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
+            //padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
             child: Stack(
               children: createChildrenTexts(),
             ),
