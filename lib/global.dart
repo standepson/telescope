@@ -16,3 +16,5 @@ var rng = Random(seed);
 int seed;
 int numDays;
 int selectedDayOfTheWeek;
+var todayDay;
+var lastSavedDay = DateTime(2019,2,1,0,0,0,0,0);

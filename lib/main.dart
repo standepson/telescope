@@ -4,14 +4,43 @@ import './galaxy.dart';
 import './calendar.dart';
 import './home_widget.dart';
 import './splash_screen.dart';
+import './global.dart' as globals;
 
 void main() => runApp(new MyApp());
 
-class MyApp extends StatelessWidget {
-  //colors for background
+class MyApp extends StatefulWidget {
+  @override
+  createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBindingObserver {
+  AppLifecycleState _appLifecycleState;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    setState(() {
+      _appLifecycleState = state;
+      if (_appLifecycleState == AppLifecycleState.resumed) {
+        globals.todayDay = DateTime.now();
+      }
+      if (globals.todayDay.weekday != globals.lastSavedDay.weekday) {
+        int difference = globals.todayDay.weekday -
+            globals.lastSavedDay.weekday;
+        if (difference >= 7) {
+          globals.weeklyTask.removeRange(0, globals.weeklyTask.length);
+        } else {
+          for (int i = 0; i <= difference; i++) {
+            globals.weeklyTask[((globals.lastSavedDay.weekday - 1) + i) % 7]
+                .removeRange(0,
+                globals.weeklyTask[((globals.lastSavedDay.weekday - 1) + i) % 7]
+                    .length);
+          }
+        }
+        globals.lastSavedDay = DateTime.now();
+      }});
+    }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new MaterialApp(
       title: 'Navigation Basics',
       theme: new ThemeData(
@@ -25,3 +54,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
