@@ -12,8 +12,9 @@ List<Task> fridayTasks = [];
 List<Task> saturdayTasks = [];
 
 int numOfStarsCompleted = 50;
-var rng = Random(seed);
+List<int> seedNum = [];
 int seed;
+var rng = Random(seed);
 int numDays;
 int selectedDayOfTheWeek;
 var todayDay;

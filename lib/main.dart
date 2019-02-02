@@ -5,7 +5,7 @@ import './calendar.dart';
 import './home_widget.dart';
 import './splash_screen.dart';
 import './global.dart' as globals;
-
+import 'dart:math';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatefulWidget {
@@ -15,6 +15,7 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBindingObserver {
   AppLifecycleState _appLifecycleState;
+  var rng = Random();
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -41,6 +42,10 @@ class MyAppState extends State<MyApp> with TickerProviderStateMixin, WidgetsBind
     }
   @override
   Widget build(BuildContext context) {
+    if(globals.seedNum.length < 1) {
+      globals.seedNum.add(rng.nextInt(10000));
+      globals.seed = globals.seedNum[0];
+    }
     return new MaterialApp(
       title: 'Navigation Basics',
       theme: new ThemeData(
