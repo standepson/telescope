@@ -54,7 +54,7 @@ class GalaxyState extends State<Galaxy> {
   }
 }
 List<Star> createChildrenTexts() {
-
+  globals.rng=Random(globals.seed);
   List<Star> childrenTexts = List<Star>();
   for (int i = 0; i < globals.numOfStarsCompleted; i++) {
     childrenTexts.add(new Star());

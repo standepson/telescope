@@ -1,3 +1,4 @@
+import './galaxy.dart';
 import 'package:flutter/material.dart';
 import 'task_button.dart';
 import './global.dart' as globals;
