@@ -160,6 +160,15 @@ void _saveTask (BuildContext context) {
   var now = new DateTime.now();
   int timeEachDay = ((60*double.tryParse(hoursController.text)) / globals.numDays).ceil();
   if (timeEachDay <= 0 || timeEachDay >= 1439) {
+    nameController.clear();
+    hoursController.clear();
+    globals.numDays = null;
+    final scaffoldErrorMessage = Scaffold.of(context);
+    scaffoldErrorMessage.showSnackBar(
+      SnackBar(
+        content: const Text('Please enter a valid time'),
+      ),
+    );
     return;
   }
   for (int i = 0; i < globals.numDays; i++) {
