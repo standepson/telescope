@@ -180,11 +180,13 @@ class CalendarWidget extends State<Calendar> {
                         height: scrwidth * .20,
                       )),
                 ),
+                /*
                 new Positioned(
                   left: center - scrwidth * .25,
                   top: centery*2,
                   child: new Image.asset('assets/weekCalendarScreen/key.png', height: scrwidth * .40, width: scrwidth * .50),
                 ),
+                */
                ],
            ),
         )

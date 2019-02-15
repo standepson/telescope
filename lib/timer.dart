@@ -86,7 +86,7 @@ class Timer extends State<TimerScreen>
                       fontFamily: 'PrintClearly',
                       fontSize: 40.0,
                       color: Colors.white),
-                  textAlign: TextAlign.justify,
+                  textAlign: TextAlign.center,
                 )),
             Expanded(
                 child: Align(
