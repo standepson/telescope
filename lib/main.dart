@@ -6,7 +6,16 @@ import './home_widget.dart';
 import './splash_screen.dart';
 import './global.dart' as globals;
 import 'dart:math';
-void main() => runApp(new MyApp());
+import 'package:flutter/services.dart';
+
+void main()async {
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
+
+  runApp(new MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
