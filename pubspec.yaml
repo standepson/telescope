@@ -55,6 +55,7 @@ flutter:
      - assets/galaxyBackground.png
      - assets/telescope.png
      - assets/taskInputBackground.png
+     - assets/timerScreen/StarGrown.png
   fonts:
       - family: PrintClearly
         fonts:

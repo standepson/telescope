@@ -1,9 +1,25 @@
-import './galaxy.dart';
+import './main.dart';
 import 'package:flutter/material.dart';
 import 'task_button.dart';
 import './global.dart' as globals;
+import 'dart:async';
+import 'calendar.dart';
 
-class CompleteScreen extends StatelessWidget {
+class CompleteScreen extends StatefulWidget {
+  @override
+  createState() => CompleteScreenWidget();
+}
+
+class CompleteScreenWidget extends State<CompleteScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 3),
+            () => Navigator.pop(context),
+
+    );
+  }
   String congrats;
   @override
   Widget build(BuildContext context) {
@@ -32,14 +48,37 @@ class CompleteScreen extends StatelessWidget {
           ),
         ),
 
-          child: Text(
-            'Congratulations! Your task is complete',
-            style: TextStyle(
-                fontFamily: 'PrintClearly',
-                fontSize: 20.0,
-                color: Colors.white),
-          ),
-
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Congratulations! Your task is complete',
+                style: TextStyle(
+                    fontFamily: 'PrintClearly',
+                    fontSize: 25.0,
+                    color: Colors.white),
+              ),
+              Container(
+                width:(MediaQuery.of(context).size.width)*.10,
+                height:(MediaQuery.of(context).size.width)*.10,
+              ),
+             Image.asset(
+                'assets/timerScreen/StarGrown.png',
+                width: (MediaQuery.of(context).size.width)*.33,
+              ),
+              Container(
+                width:(MediaQuery.of(context).size.width)*.10,
+                height:(MediaQuery.of(context).size.width)*.10,
+              ),
+              Text(
+                'A star has been added to your galaxy',
+                style: TextStyle(
+                    fontFamily: 'PrintClearly',
+                    fontSize: 25.0,
+                    color: Colors.white),
+              ),
+            ],
+          )
       ),
     );
   }
