@@ -53,6 +53,7 @@ flutter:
      - assets/inputTaskScreenTitle.png
      - assets/galaxyBackground.png
      - assets/telescope.png
+     - assets/taskInputBackground.png
   fonts:
       - family: PrintClearly
         fonts:
