@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import './global.dart' as globals;
 import './task_button.dart';
+import 'package:flutter_duration_picker/flutter_duration_picker.dart';
 
 final nameController = TextEditingController();
-final hoursController = TextEditingController();
+Duration _duration = Duration(hours: 0, minutes: 0);
 
 class TaskInput extends StatefulWidget {
   @override
@@ -44,7 +45,6 @@ class TaskEntering extends State<TaskInput> {
       value: 7,
     ));
   }
-
   @override
   Widget build(BuildContext context) {
     loadData();
@@ -65,7 +65,7 @@ class TaskEntering extends State<TaskInput> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Image.asset('assets/inputTaskScreenTitle.png'),
                   Container(height: (MediaQuery.of(context).size.height) * .05),
@@ -103,22 +103,14 @@ class TaskEntering extends State<TaskInput> {
                                 fontFamily: 'PrintClearly',
                                 color: Colors.white)),
                   ),
-                  TextField(
-                    style: new TextStyle(color: Colors.white, fontSize: 20.0, fontFamily: 'PrintClearly'),
-                    controller: hoursController,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      hintStyle: TextStyle(
-                          fontSize: 18.0,
-                          fontStyle: FontStyle.italic,
-                          fontFamily: 'PrintClearly',
-                          color: Colors.white),
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white)
-                      ),
-                      hintText: 'enter number',
-                    ),
-                  ),
+                  new Container(
+                      child: DurationPicker(
+                        duration: _duration,
+                        onChange: (val) {
+                          this.setState(() => _duration = val);
+                        },
+                        snapToMins: 1.0,
+                      )),
                   Container(height: (MediaQuery.of(context).size.height) * .01),
                   Container(
                     width: MediaQuery.of(context).size.width,
@@ -169,9 +161,8 @@ class TaskEntering extends State<TaskInput> {
 }
 
 void _saveTask (BuildContext context) {
-  if (nameController.text == '' || hoursController.text == '' || globals.numDays == null) {
+  if (nameController.text == '' || _duration.inMinutes == 0 || globals.numDays == null) {
     nameController.clear();
-    hoursController.clear();
     globals.numDays = null;
     final scaffoldErrorMessage = Scaffold.of(context);
     scaffoldErrorMessage.showSnackBar(
@@ -182,10 +173,10 @@ void _saveTask (BuildContext context) {
     return;
   }
   var now = new DateTime.now();
-  int timeEachDay = ((60*double.tryParse(hoursController.text)) / globals.numDays).ceil();
+  int timeEachDay = ((_duration.inMinutes) / globals.numDays).ceil();
+  print(timeEachDay);
   if (timeEachDay <= 0 || timeEachDay >= 1439) {
     nameController.clear();
-    hoursController.clear();
     globals.numDays = null;
     final scaffoldErrorMessage = Scaffold.of(context);
     scaffoldErrorMessage.showSnackBar(
@@ -195,7 +186,7 @@ void _saveTask (BuildContext context) {
     );
     return;
   }
-  for (int i = 0; i < globals.numDays; i++) {
+  for (int i = 0; i <= globals.numDays; i++) {
     globals.weeklyTask[((now.add(new Duration(days: i))).weekday) - 1].add(Task(nameController.text, timeEachDay));
     }
   final scaffold = Scaffold.of(context);
@@ -204,8 +195,7 @@ void _saveTask (BuildContext context) {
       content: const Text('Task saved successfully'),
     ),
   );
-
+  _duration = Duration(hours: 0, days: 0);
   nameController.clear();
-  hoursController.clear();
   globals.numDays = null;
 }

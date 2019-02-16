@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import './global.dart' as globals;
+import './complete_screen.dart';
 
 class TimerScreen extends StatefulWidget {
   int _taskDuration;
@@ -14,13 +15,14 @@ class TimerScreen extends StatefulWidget {
 class Timer extends State<TimerScreen>
     with TickerProviderStateMixin, WidgetsBindingObserver {
 
-
+  bool taskIsCompleted = false;
   AnimationController controller;
   AppLifecycleState _appLifecycleState;
   String get timerString {
     Duration duration = controller.duration * controller.value;
     String timerString = '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
     if (timerString == "0:01") {
+      taskIsCompleted = true;
       globals.weeklyTask[globals.selectedDayOfTheWeek].removeWhere((item) => (item.taskName == widget._taskName &&
       item.taskDuration == widget._taskDuration));
       //Increment the number of stars
@@ -129,22 +131,28 @@ class Timer extends State<TimerScreen>
                                 ],
                               )),
                         ])))),
-
-            Container(
-              child: RaisedButton(
-                color: Colors.white,
-                onPressed: () {
-                  quitWarning(context);
-                },
-                child: Text(
-                  'EXIT',
-                  style: TextStyle(
-                      fontFamily: 'PrintClearly',
-                      fontSize: 15.0,
-                      color: Colors.deepPurple),
+              Container(
+                child: RaisedButton(
+                  color: Colors.white,
+                  onPressed: () {
+                    if (taskIsCompleted) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CompleteScreen()),
+                      );
+                    } else {
+                      quitWarning(context);
+                    }
+                  },
+                  child: Text(
+                    'EXIT',
+                    style: TextStyle(
+                        fontFamily: 'PrintClearly',
+                        fontSize: 15.0,
+                        color: Colors.deepPurple),
+                  ),
                 ),
               ),
-            ),
             Container(
                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0),
                 child: Text(
