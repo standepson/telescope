@@ -16,8 +16,10 @@ class CompleteScreenWidget extends State<CompleteScreen> {
     super.initState();
     Timer(
         Duration(seconds: 3),
-            () => Navigator.pop(context),
-
+            () {Navigator.pop(context);
+              Navigator.pop(context);
+            Navigator.pop(context);
+            },
     );
   }
   String congrats;
@@ -53,6 +55,7 @@ class CompleteScreenWidget extends State<CompleteScreen> {
             children: <Widget>[
               Text(
                 'Congratulations! Your task is complete',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     fontFamily: 'PrintClearly',
                     fontSize: 25.0,
@@ -72,6 +75,7 @@ class CompleteScreenWidget extends State<CompleteScreen> {
               ),
               Text(
                 'A star has been added to your galaxy',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     fontFamily: 'PrintClearly',
                     fontSize: 25.0,
