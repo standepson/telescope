@@ -45,118 +45,147 @@ class TaskEntering extends State<TaskInput> {
       value: 7,
     ));
   }
+
   @override
   Widget build(BuildContext context) {
     loadData();
-    return Scaffold(
-      resizeToAvoidBottomPadding: false,
-        body: Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new AssetImage(
-                  'assets/taskInputBackground.png', ),
-                fit: BoxFit.cover,
-              ),
+    return Stack(
+        children: <Widget>[
+          Positioned(
+            top: 0.0,
+            child: Image.asset(
+              'assets/taskInputBackground.png',
+              fit: BoxFit.fill,
+            ),),
+          Center(
+            child: ListView(
+              physics: PageScrollPhysics(),
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Image.asset('assets/inputTaskScreenTitle.png'),
+                    Container(height: (MediaQuery
+                        .of(context)
+                        .size
+                        .height) * .05),
+                    Container(
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
+                      child: Text('TASK NAME:',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 25.0,
+                              fontFamily: 'PrintClearly',
+                              color: const Color(0xFFDEEAF6))),
+                    ),
+                    TextField(
+                      style: new TextStyle(color: Colors.white,
+                          fontSize: 20.0,
+                          fontFamily: 'PrintClearly'),
+                      controller: nameController,
+                      decoration: InputDecoration(
+                        hintStyle: TextStyle(
+                            fontSize: 18.0,
+                            fontStyle: FontStyle.italic,
+                            fontFamily: 'PrintClearly',
+                            color: Colors.white),
+                        enabledBorder: const UnderlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.white)
+                        ),
+                        hintText: 'enter name',
+                      ),
+                    ),
+                    Container(height: (MediaQuery
+                        .of(context)
+                        .size
+                        .height) * .01),
+                    Container(
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
+                      child: Text('TIME NEEDED TO COMPLETE TASK:',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 25.0,
+                              fontFamily: 'PrintClearly',
+                              color: Colors.white)),
+                    ),
+                    new Container(
+                        child: DurationPicker(
+                          duration: _duration,
+                          onChange: (val) {
+                            this.setState(() => _duration = val);
+                          },
+                          snapToMins: 1.0,
+                        )),
+                    Container(height: (MediaQuery
+                        .of(context)
+                        .size
+                        .height) * .01),
+                    Container(
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
+                      child: Text('DAYS UNTILL DEADLINE:',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 25.0,
+                              fontFamily: 'PrintClearly',
+                              color: Colors.white)),
+                    ),
+                    new Theme(
+                        data: Theme.of(context).copyWith(
+                            canvasColor: Theme
+                                .of(context)
+                                .primaryColor
+                        ),
+                        child: DropdownButton(
+                            style: new TextStyle(color: Colors.white,
+                                fontSize: 20.0,
+                                fontFamily: 'PrintClearly'),
+                            items: listDrop,
+                            value: globals.numDays,
+                            hint: Text("select num of days",
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontStyle: FontStyle.italic,
+                                    fontFamily: 'PrintClearly',
+                                    color: Colors.white)),
+                            onChanged: (value) {
+                              globals.numDays = value;
+                              setState(() {});
+                            })
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      child: RaisedButton(
+                        color: Colors.white,
+                        onPressed: () =>
+                            setState(() {
+                              _saveTask(context);
+                            }),
+                        child: Text(
+                          'Save Task',
+                          style: TextStyle(
+                              fontFamily: 'PrintClearly',
+                              fontSize: 24.0,
+                              color: Colors.deepPurple),
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
             ),
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              padding: const EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 25.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset('assets/inputTaskScreenTitle.png'),
-                  Container(height: (MediaQuery.of(context).size.height) * .05),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text('TASK NAME:',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            fontFamily: 'PrintClearly',
-                            color: const Color(0xFFDEEAF6))),
-                  ),
-                  TextField(
-                    style: new TextStyle(color: Colors.white, fontSize: 20.0, fontFamily: 'PrintClearly'),
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      hintStyle: TextStyle(
-                          fontSize: 18.0,
-                          fontStyle: FontStyle.italic,
-                          fontFamily: 'PrintClearly',
-                          color: Colors.white),
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.white)
-                      ),
-                      hintText: 'enter name',
-                    ),
-                  ),
-                  Container(height: (MediaQuery.of(context).size.height) * .01),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: Text('TIME NEEDED TO COMPLETE TASK:',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 25.0,
-                                fontFamily: 'PrintClearly',
-                                color: Colors.white)),
-                  ),
-                  new Container(
-                      child: DurationPicker(
-                        duration: _duration,
-                        onChange: (val) {
-                          this.setState(() => _duration = val);
-                        },
-                        snapToMins: 1.0,
-                      )),
-                  Container(height: (MediaQuery.of(context).size.height) * .01),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Text('DAYS UNTILL DEADLINE:',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            fontFamily: 'PrintClearly',
-                            color: Colors.white)),
-                  ),
-                  new Theme(
-                    data: Theme.of(context).copyWith(
-                        canvasColor: Theme.of(context).primaryColor
-                    ),
-                      child:DropdownButton(
-                          style: new TextStyle(color: Colors.white, fontSize: 20.0, fontFamily: 'PrintClearly'),
-                          items: listDrop,
-                          value: globals.numDays,
-                          hint: Text("select num of days",
-                              style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontStyle: FontStyle.italic,
-                                  fontFamily: 'PrintClearly',
-                                  color: Colors.white)),
-                          onChanged: (value) {
-                            globals.numDays = value;
-                            setState(() {});
-                          })
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: RaisedButton(
-                      color: Colors.white,
-                      onPressed: () =>  setState(() {_saveTask(context);}),
-                      child: Text(
-                        'Save Task',
-                        style: TextStyle(
-                            fontFamily: 'PrintClearly',
-                            fontSize: 24.0,
-                            color: Colors.deepPurple),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            )));
+          )
+        ]);
   }
 }
 
