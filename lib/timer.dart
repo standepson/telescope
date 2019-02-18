@@ -78,10 +78,9 @@ class Timer extends State<TimerScreen>
               ],
             ),
           ),
-          padding: const EdgeInsets.all(32.0),
           child: Column(children: <Widget>[
             Container(
-                padding: const EdgeInsets.fromLTRB(0.0, 60.0, 0.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 10.0),
                 child: Text(
                   "Your star is growing...",
                   style: TextStyle(
@@ -163,7 +162,6 @@ class Timer extends State<TimerScreen>
                       color: Colors.white),
                 )),
             Container(
-                margin: EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
